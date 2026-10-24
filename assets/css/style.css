@@ -1,0 +1,767 @@
+/* ==========================================================================
+   NutriGen — Bersama Tuntaskan Stunting, Bangun Generasi Emas
+   Modern, Elegant & Professional Stylesheet (CSS3 Native, Zero JavaScript)
+   ========================================================================== */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Offset scroll otomatis agar judul tidak tertutup navbar sticky */
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Offset anchor untuk seluruh elemen bertarget ID agar posisi scroll presisi di bawah navbar */
+header, section, [id] {
+    scroll-margin-top: 80px;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+    background-color: #f7f6f3; /* Latar abu-abu hangat yang lembut sesuai referensi */
+    color: #242e28;
+    line-height: 1.68;
+    letter-spacing: -0.01em;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================================================
+   1. HEADER ELEGAN DENGAN MOTIF DAUN
+   ========================================================================== */
+.main-header {
+    background: linear-gradient(135deg, #0d3420 0%, #174b2f 50%, #0d311e 100%);
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 220px;
+    padding: 42px 24px;
+}
+
+/* Siluet Motif Daun Halus di Kiri & Kanan Header */
+.leaf-pattern-left, .leaf-pattern-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 280px;
+    pointer-events: none;
+    background-repeat: no-repeat;
+    opacity: 0.24;
+}
+
+.leaf-pattern-left {
+    left: 0;
+    background-position: left center;
+    background-size: contain;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Cpath d='M-40 400C60 380 120 280 100 180C80 80 180 20 240 0C140 40 40 100 0 200C-40 300 -20 360 -40 400Z' fill='%23a4e2bd'/%3E%3Cpath d='M-20 220C50 200 100 130 90 60C40 90 10 140 -20 220Z' fill='%2378c99b'/%3E%3Cpath d='M20 380C110 320 160 220 140 120C100 180 60 280 20 380Z' fill='%235bb783'/%3E%3C/svg%3E");
+}
+
+.leaf-pattern-right {
+    right: 0;
+    background-position: right center;
+    background-size: contain;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Cpath d='M340 400C240 380 180 280 200 180C220 80 120 20 60 0C160 40 260 100 300 200C340 300 320 360 340 400Z' fill='%23a4e2bd'/%3E%3Cpath d='M320 220C250 200 200 130 210 60C260 90 290 140 320 220Z' fill='%2378c99b'/%3E%3Cpath d='M280 380C190 320 140 220 160 120C200 180 240 280 280 380Z' fill='%235bb783'/%3E%3C/svg%3E");
+}
+
+.header-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.brand-logo-group {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.brand-leaf-icon {
+    width: 42px;
+    height: 28px;
+    margin-bottom: -6px;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2));
+}
+
+.brand-name {
+    font-size: clamp(2.6rem, 5.5vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.1;
+    color: #ffffff;
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.brand-tagline {
+    font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+    font-weight: 400;
+    color: #d6ede1;
+    letter-spacing: -0.01em;
+    max-width: 620px;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   2. NAVBAR STICKY DENGAN LATAR PUTIH & PILL AKTIF HIJAU
+   ========================================================================== */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #ffffff; /* Latar putih murni sesuai referensi */
+    border-bottom: 1px solid #edf1ee;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+}
+
+nav a {
+    color: #38443e;
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    padding: 8px 20px;
+    border-radius: 999px; /* Bentuk kapsul / pill */
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-block;
+}
+
+nav a:hover {
+    color: #1e583b;
+    background-color: #f0f7f3;
+}
+
+/* Menu Aktif, Focus & Active: Latar Hijau Botol & Teks Putih */
+nav a.active,
+nav a:focus,
+nav a:active {
+    color: #ffffff;
+    background-color: #1e583b;
+    font-weight: 600;
+    box-shadow: 0 2px 10px rgba(30, 88, 59, 0.25);
+    outline: none;
+}
+
+/* Efek visual halus saat bagian dituju */
+section:target {
+    border-color: #c7e3d1;
+    box-shadow: 0 8px 30px rgba(30, 88, 59, 0.08);
+}
+
+/* ==========================================================================
+   3. KONTEN UTAMA (KARTU PUTIH DENGAN SUDUT MEMBULAT & BAYANGAN TIPIS)
+   ========================================================================== */
+main {
+    width: 92%;
+    max-width: 980px;
+    margin: 40px auto;
+    flex: 1;
+}
+
+section, .card-box {
+    background: #ffffff;
+    border-radius: 20px; 
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    padding: 44px 48px;
+    margin-bottom: 32px;
+}
+
+/* Garis Aksen Hijau Horizontal di Atas Judul Sesuai Gambar Referensi */
+.accent-bar {
+    width: 36px;
+    height: 4px;
+    background-color: #1e583b;
+    border-radius: 2px;
+    margin-bottom: 12px;
+}
+
+/* Tata Letak Header Kartu dengan Banner Dua Kolom (Teks & Gambar Makanan Sehat) */
+.card-hero-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 24px;
+}
+
+.card-hero-content {
+    flex: 1;
+}
+
+.card-hero-image {
+    width: 260px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    flex-shrink: 0;
+}
+
+/* Heading Halaman & Kartu */
+h2 {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: #163624;
+    margin-bottom: 10px;
+    line-height: 1.25;
+}
+
+h3 {
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: #1d2e24;
+    margin-top: 28px;
+    margin-bottom: 14px;
+}
+
+p {
+    font-size: 15.5px;
+    font-weight: 400;
+    color: #4d5c53; 
+    line-height: 1.72;
+    margin-bottom: 18px;
+}
+
+p:last-of-type {
+    margin-bottom: 0;
+}
+
+ul, ol {
+    margin: 16px 0 24px 22px;
+    padding-left: 8px;
+}
+
+li {
+    font-size: 15px;
+    color: #3b4740;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+li::marker {
+    color: #1e583b;
+    font-weight: 600;
+}
+
+.hero-image {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin: 24px auto 28px auto;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================================================
+   4. TABEL MENU SEIMBANG & TABEL DATA CRUD
+   ========================================================================== */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-top: 20px;
+    margin-bottom: 24px;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #d9e6df;
+    background-color: #ffffff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+}
+
+th, td {
+    padding: 15px 18px;
+    text-align: left;
+    font-size: 14.5px;
+    border-bottom: 1px solid #e7efe9;
+    border-right: 1px solid #edf4ef;
+}
+
+th:last-child, td:last-child {
+    border-right: none;
+}
+
+th {
+    background: linear-gradient(135deg, #1b5336 0%, #13422a 100%);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 13.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 2px solid #0f3521;
+}
+
+td {
+    color: #313d36;
+}
+
+tr:nth-child(even) td {
+    background-color: #f9fbf9;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover td {
+    background-color: #eff7f2;
+}
+
+/* ==========================================================================
+   5. TOMBOL & TAUTAN ELEGAN
+   ========================================================================== */
+.link {
+    color: #1e583b;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.link:hover {
+    color: #0e3521;
+    text-decoration: underline;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: inherit;
+    font-size: 14.5px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 9px 22px;
+    border-radius: 999px; /* Pill shape */
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    line-height: 1.3;
+}
+
+.btn-primary {
+    background-color: #1e583b;
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(30, 88, 59, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: #266b48;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(30, 88, 59, 0.28);
+}
+
+.btn-secondary {
+    background-color: #f0f4f1;
+    color: #313d36;
+    border: 1px solid #d4ded8;
+}
+
+.btn-secondary:hover {
+    background-color: #e4ebe6;
+    color: #163624;
+}
+
+.btn-danger {
+    background-color: #c53030;
+    color: #ffffff;
+}
+
+.btn-danger:hover {
+    background-color: #9b2c2c;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: #1e583b;
+    border: 1.5px solid #1e583b;
+}
+
+.btn-outline:hover {
+    background-color: #1e583b;
+    color: #ffffff;
+}
+
+.btn-sm {
+    padding: 6px 14px;
+    font-size: 13px;
+    border-radius: 8px;
+}
+
+/* ==========================================================================
+   6. ALERTS & FLASH MESSAGES
+   ========================================================================== */
+.alert {
+    padding: 14px 18px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    font-size: 14.5px;
+    line-height: 1.5;
+}
+
+.alert-success {
+    background-color: #edf7f0;
+    border: 1px solid #c2e6cd;
+    color: #164629;
+}
+
+.alert-danger {
+    background-color: #fde8e8;
+    border: 1px solid #f8b4b4;
+    color: #9b1c1c;
+}
+
+/* ==========================================================================
+   7. FORMULIR CRUD (TAMBAH & EDIT ARTIKEL)
+   ========================================================================== */
+.form-card {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-label {
+    display: block;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #1d2e24;
+    margin-bottom: 8px;
+}
+
+.form-label .required {
+    color: #c53030;
+    margin-left: 2px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 11px 16px;
+    font-family: inherit;
+    font-size: 15px;
+    color: #1d2e24;
+    background-color: #ffffff;
+    border: 1.5px solid #d7ded9;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.form-control:focus {
+    border-color: #1e583b;
+    box-shadow: 0 0 0 3px rgba(30, 88, 59, 0.12);
+}
+
+textarea.form-control {
+    min-height: 130px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid #edf1ee;
+}
+
+/* ==========================================================================
+   8. ARTIKEL: GRID, CARDS, BADGES & DETAIL
+   ========================================================================== */
+.badge-category {
+    display: inline-block;
+    background: #eaf5ee;
+    color: #1b5336;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.02em;
+    border: 1px solid #c7e5d2;
+}
+
+.article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 22px;
+    margin-top: 24px;
+}
+
+.article-card {
+    background: #ffffff;
+    border: 1px solid #e5ede8;
+    border-radius: 16px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.article-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    border-color: #b9dec8;
+}
+
+.article-card-header {
+    margin-bottom: 10px;
+}
+
+.article-card-date {
+    font-size: 12.5px;
+    color: #7b8880;
+    margin-top: 6px;
+    display: block;
+}
+
+.article-card-title {
+    font-size: 17.5px;
+    font-weight: 700;
+    color: #163624;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    line-height: 1.35;
+}
+
+.article-card-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.article-card-title a:hover {
+    color: #1e583b;
+}
+
+.article-card-summary {
+    font-size: 14px;
+    color: #55635a;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    flex: 1;
+}
+
+.article-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px solid #eef3f0;
+}
+
+/* Detail View */
+.article-detail-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 22px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #edf1ee;
+}
+
+.article-detail-meta .date {
+    font-size: 14px;
+    color: #68756d;
+}
+
+.article-detail-content {
+    font-size: 16px;
+    line-height: 1.85;
+    color: #2b3630;
+    margin-bottom: 32px;
+}
+
+.article-detail-content p {
+    margin-bottom: 18px;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 44px 20px;
+    background-color: #f9fbf9;
+    border-radius: 16px;
+    border: 1.5px dashed #cfe0d6;
+    margin: 20px 0;
+}
+
+.empty-state p {
+    color: #68776f;
+    font-size: 15.5px;
+    margin-bottom: 14px;
+}
+
+/* Action button forms in table */
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.action-buttons form {
+    display: inline-block;
+    margin: 0;
+}
+
+/* ==========================================================================
+   9. FOOTER ELEGAN HIJAU TUA
+   ========================================================================== */
+footer {
+    background: linear-gradient(180deg, #0e2f1d 0%, #092013 100%);
+    color: #d6ede1;
+    text-align: center;
+    padding: 50px 24px 40px 24px;
+    margin-top: 50px;
+    border-top: 3px solid #1e583b;
+    position: relative;
+    box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.06);
+}
+
+footer p {
+    color: #a8d5be;
+    text-align: center;
+    font-size: 14.5px;
+    line-height: 1.75;
+    margin: 5px 0;
+}
+
+footer p:first-child {
+    font-size: 16.5px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+footer p:last-child {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 13px;
+    color: #7ba68e;
+}
+
+/* ==========================================================================
+   10. RESPONSIVE DESIGN (MOBILE & TABLET)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .main-header {
+        min-height: 180px;
+        padding: 32px 18px;
+    }
+
+    .leaf-pattern-left, .leaf-pattern-right {
+        width: 140px;
+        opacity: 0.16;
+    }
+
+    nav {
+        padding: 10px 12px;
+        gap: 6px;
+    }
+
+    nav a {
+        padding: 6px 14px;
+        font-size: 13px;
+    }
+
+    main {
+        width: 93%;
+        margin: 24px auto;
+    }
+
+    section, .card-box {
+        padding: 28px 20px;
+        border-radius: 16px;
+        margin-bottom: 22px;
+    }
+
+    .card-hero-banner {
+        flex-direction: column-reverse;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    .card-hero-image {
+        width: 100%;
+        height: 180px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    h3 {
+        font-size: 17px;
+    }
+
+    .hero-image {
+        height: 210px;
+        border-radius: 12px;
+        margin: 18px 0;
+    }
+
+    th, td {
+        padding: 12px 14px;
+        font-size: 13px;
+    }
+
+    .article-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form-actions .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    footer {
+        padding: 38px 18px 30px 18px;
+        margin-top: 36px;
+    }
+}
